@@ -139,3 +139,10 @@ AUTH_USER_MODEL = 'accounts.FixifyUser'
 
 # settings.py
 
+REST_FRAMEWORK = {
+    # Now you can remove authentication class in views, since we handle it here.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
+        # 'rest_framework.authentication.SessionAuthentication',
+    ]
+}

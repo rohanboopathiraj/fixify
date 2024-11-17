@@ -40,6 +40,7 @@ class FixifyUserManager(BaseUserManager):
 
 
 class FixifyUser(AbstractUser):
+    username = None
     email = models.EmailField(unique=True)
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "email"
@@ -62,6 +63,3 @@ class FixifyUser(AbstractUser):
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',
     )
-
-
-

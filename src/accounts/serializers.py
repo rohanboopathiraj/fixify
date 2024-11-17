@@ -8,7 +8,7 @@ class FixifyUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FixifyUser
-        fields = ['id', 'email', 'username', 'first_name',
+        fields = ['id', 'email', 'first_name',
                   'last_name', 'password', 'is_staff', 'is_active']
 
     def create(self, validated_data):
