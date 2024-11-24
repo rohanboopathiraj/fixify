@@ -1,8 +1,10 @@
 from rest_framework import serializers
 from .models import FixifyUser
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
-class FixifyUserSerializer(serializers.ModelSerializer):
+
+class FixifyUserRegistrationSerializer(serializers.ModelSerializer):
     # Write-only field, not returned in response
     password = serializers.CharField(write_only=True)
 
@@ -15,3 +17,8 @@ class FixifyUserSerializer(serializers.ModelSerializer):
         user = FixifyUser.objects.create_user(**validated_data)
         user.save()
         return user
+
+
+class FixifyUserLoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
